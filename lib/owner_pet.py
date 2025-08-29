@@ -17,8 +17,13 @@ class Owner:
         pet.owner = self
 
     def get_sorted_pets(self):
-        """Return this owner's pets sorted by name."""
-        return sorted(self.pets(), key=lambda pet: pet.name)
+        """
+        Return this owner's pets sorted by their names.
+        """
+        def get_pet_name(pet):
+            return pet.name
+        
+        return sorted(self.pets(), key=get_pet_name)
 
 
 class Pet:
@@ -41,4 +46,11 @@ class Pet:
         # Track this instance
         Pet.all.append(self)
 
-        
+Owner.name="Akumu"
+Pet.pet_type="dog"
+
+owner1=Owner("Akumu")
+owner2 = Owner("Mumbi")
+
+pet2 = Pet("Bella", "cat", owner1)
+pet4 = Pet("Milo", "rodent")
